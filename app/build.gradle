@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "leifu.mvc"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file('mvc.jks')
+            storePassword '123456'
+            keyAlias 'mvc架构'
+            keyPassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+    //  butterknife注解
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //banner图,引导页等
+    compile 'cn.bingoogolapple:bga-banner:2.2.4@aar'
+    //内存泄漏
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    //日志打印
+    compile 'com.orhanobut:logger:1.15'
+    //沉浸式
+    compile 'com.gyf.barlibrary:barlibrary:2.3.0'
+    //RecyclerViewAdapter帮助类
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    //运行时权限
+    //    compile 'pub.devrel:easypermissions:1.1.3'
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    //glide图片加载
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    //eventbus订阅——发布模式
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //TabLayout的封装
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //底部导航
+    compile 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
+    //材料设计
+    compile "com.android.support:design:25.+"
+    //网络请求
+    compile 'com.lzy.net:okgo:3.0.4'
+    //shape,textview的封装
+    compile 'com.github.lygttpod:SuperTextView:2.1.6'
+    //多布局状态
+    compile 'com.classic.common:multiple-status-view:1.4'
+    //fragment嵌套问题
+    compile 'me.yokeyword:fragmentation:1.2.5'
+    //webview交互
+    compile 'com.just.agentweb:agentweb:3.1.0'
+    //自定义toast
+    compile 'com.github.leifu1107:CustomToast:1.0'
+}
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_runtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="叠几行落叶随风的小字，停泊指尖，于心的宁静中，藏一掬思念，轻轻落凡尘。这点滴的心思，汇聚在无声的雨里，捎去遥远的梦想，寻思着，这花香烟火，一沓沓，恰好可以，恰好能够，落入相逢的城池。"/>
+
+    <leifu.mvc.utils.TextVerticalScrollUtils
+        android:background="@color/text9"
+        android:id="@+id/tv_verticalscroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
