@@ -22,4 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <leifu.mvc.utils.TextVerticalScrollMoreUtils
+        android:id="@+id/tv_verticalscrollmore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></leifu.mvc.utils.TextVerticalScrollMoreUtils>
+
 </LinearLayout>

@@ -9,5 +9,9 @@
     <color name="text3">#333333</color>
     <color name="text6">#666666</color>
     <color name="text9">#999999</color>
+    <color name="eee">#EEEEEE</color>
     <color name="red">#fe0a5a</color>
+    <color name="transparent50">#80000000</color>
+    <color name="transparent20">#33000000</color>
+    <color name="transparent10">#1A000000</color>
 </resources>

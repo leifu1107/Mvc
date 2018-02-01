@@ -4,4 +4,6 @@
     <string name="main_home">首页</string>
     <string name="main_near">附近</string>
     <string name="main_my">我的</string>
+
+    <string name="gif_loading">客官您稍等...</string>
 </resources>

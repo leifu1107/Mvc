@@ -7,9 +7,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+
+import com.classic.common.MultipleStatusView;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import leifu.mvc.R;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -24,6 +28,7 @@ public abstract class BaseFragment extends SupportFragment {
     protected Context mContext;
     private Unbinder mUnBinder;
     protected boolean isInited = false;
+    private View loadingView;
 
     @Override
     public void onAttach(Context context) {
@@ -52,15 +57,6 @@ public abstract class BaseFragment extends SupportFragment {
         initEventAndData();
     }
 
-    @Override
-    public void onSupportVisible() {
-        super.onSupportVisible();
-    }
-
-    @Override
-    public void onSupportInvisible() {
-        super.onSupportInvisible();
-    }
 
     @Override
     public void onDestroyView() {
@@ -69,7 +65,13 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
     protected abstract int getLayoutId();
+
     protected abstract void initEventAndData();
 
-
+    public void showLoading(MultipleStatusView msv_statusview) {
+        if (loadingView==null) {
+            loadingView = LayoutInflater.from(mContext).inflate(R.layout.view_loading, null);
+        }
+        msv_statusview.showLoading(loadingView,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+    }
 }

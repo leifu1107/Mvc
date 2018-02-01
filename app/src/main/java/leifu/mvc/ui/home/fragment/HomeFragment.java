@@ -1,11 +1,17 @@
 package leifu.mvc.ui.home.fragment;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import leifu.mvc.R;
 import leifu.mvc.base.BaseFragment;
 import leifu.mvc.utils.Logger;
+import leifu.mvc.utils.TextVerticalScrollMoreUtils;
 import leifu.mvc.utils.TextVerticalScrollUtils;
 import leifu.toastlibrary.CustomToast;
 
@@ -18,7 +24,10 @@ import leifu.toastlibrary.CustomToast;
 public class HomeFragment extends BaseFragment {
     @BindView(R.id.tv_verticalscroll)
     TextVerticalScrollUtils tvVerticalscroll;
+    @BindView(R.id.tv_verticalscrollmore)
+    TextVerticalScrollMoreUtils tv_verticalscrollmore;
     private ArrayList<String> titleList = new ArrayList<String>();
+    List<View> views = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -30,11 +39,6 @@ public class HomeFragment extends BaseFragment {
         titleList.add("你是天上最受宠的一架钢琴");
         titleList.add("我是丑人脸上的鼻涕");
         titleList.add("你发出完美的声音");
-        titleList.add("我被默默揩去");
-        titleList.add("你冷酷外表下藏着诗情画意");
-        titleList.add("我已经够胖还吃东西");
-        titleList.add("你踏着七彩祥云离去");
-        titleList.add("我被留在这里");
         tvVerticalscroll.setTextList(titleList);
         tvVerticalscroll.setText(15, 2, 0xff766156);//设置属性
         tvVerticalscroll.setTextStillTime(3000);//设置停留时长间隔
@@ -47,8 +51,27 @@ public class HomeFragment extends BaseFragment {
         });
         Logger.e("主页");
         tvVerticalscroll.startAutoScroll();
+
+        setUpMarqueeView();
     }
 
+    /**
+     * 仿淘宝通知
+     */
+    private void setUpMarqueeView() {
+        View moreView = LayoutInflater.from(mContext).inflate(R.layout.view_taobaonotify, null);
+        //初始化布局的控件
+        TextView tv1 = (TextView) moreView.findViewById(R.id.tv1);
+        TextView tv2 = (TextView) moreView.findViewById(R.id.tv2);
+        tv1.setText("五一欢乐与您共享，ＸＸ节能高清惊喜大促销。");
+        tv2.setText("五一充值送机，你准备好了吗？");
+        views.add(moreView);
+        tv_verticalscrollmore.setViews(views);
+    }
+
+    /**
+     * 先执行onSupportVisible方法,然后执行onLazyInitView并只执行一次
+     */
     @Override
     public void onSupportVisible() {
         super.onSupportVisible();
