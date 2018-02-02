@@ -12,6 +12,8 @@ import java.io.File;
 
 public class Constants {
 
+    public static final String HOST = "http://news-at.zhihu.com/api/4/";
+
     //================= KEY ====================
     //================= PATH ====================
     public static final String PATH_SDCARD = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "codeest" + File.separator + "GeekNews";

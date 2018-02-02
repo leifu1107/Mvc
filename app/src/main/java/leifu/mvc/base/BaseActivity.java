@@ -20,7 +20,6 @@ import butterknife.Unbinder;
 import leifu.mvc.R;
 import leifu.mvc.app.App;
 import leifu.mvc.bean.MessageEvent;
-import leifu.toastlibrary.CustomToast;
 import me.yokeyword.fragmentation.SupportActivity;
 
 /**
@@ -107,15 +106,7 @@ public abstract class BaseActivity extends SupportActivity{
         App.getInstance().removeActivity(this);
         super.finish();
     }
-    private static long mExitTime;
-    public static boolean doubleClickExit() {
-        if ((System.currentTimeMillis() - mExitTime) > 2000) {
-            CustomToast.normal("再按一次退出");
-            mExitTime = System.currentTimeMillis();
-            return false;
-        }
-        return true;
-    }
+
     protected abstract int getLayout();
 
     protected abstract void initEventAndData();

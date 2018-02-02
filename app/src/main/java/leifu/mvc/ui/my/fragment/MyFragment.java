@@ -1,7 +1,14 @@
 package leifu.mvc.ui.my.fragment;
 
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.Callback;
+import com.lzy.okgo.model.Progress;
+import com.lzy.okgo.model.Response;
+import com.lzy.okgo.request.base.Request;
+
 import leifu.mvc.R;
 import leifu.mvc.base.BaseFragment;
+import leifu.mvc.ui.near.bean.NewsLatestBean;
 import leifu.mvc.utils.Logger;
 
 /**
@@ -19,5 +26,47 @@ public class MyFragment extends BaseFragment {
     @Override
     protected void initEventAndData() {
         Logger.e("MyFragment");
+        OkGo.<NewsLatestBean>get("")
+                .execute(new Callback<NewsLatestBean>() {
+                    @Override
+                    public void onStart(Request<NewsLatestBean, ? extends Request> request) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(Response<NewsLatestBean> response) {
+
+                    }
+
+                    @Override
+                    public void onCacheSuccess(Response<NewsLatestBean> response) {
+
+                    }
+
+                    @Override
+                    public void onError(Response<NewsLatestBean> response) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+
+                    }
+
+                    @Override
+                    public void uploadProgress(Progress progress) {
+
+                    }
+
+                    @Override
+                    public void downloadProgress(Progress progress) {
+
+                    }
+
+                    @Override
+                    public NewsLatestBean convertResponse(okhttp3.Response response) throws Throwable {
+                        return null;
+                    }
+                });
     }
 }

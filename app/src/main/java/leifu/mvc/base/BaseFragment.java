@@ -58,6 +58,8 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
 
+
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

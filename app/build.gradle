@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -67,7 +67,7 @@ dependencies {
     //底部导航
     compile 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
     //材料设计
-    compile "com.android.support:design:25.+"
+    compile 'com.android.support:design:25.+'
     //网络请求
     compile 'com.lzy.net:okgo:3.0.4'
     //shape,textview的封装
@@ -82,5 +82,8 @@ dependencies {
     compile 'com.github.leifu1107:CustomToast:1.0'
     //播放gif
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.10'
+    compile 'com.google.code.gson:gson:2.2.4'
+    //下拉刷新
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5-alpha-3'
 }
 
