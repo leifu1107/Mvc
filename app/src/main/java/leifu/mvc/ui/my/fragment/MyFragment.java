@@ -1,5 +1,6 @@
 package leifu.mvc.ui.my.fragment;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.Callback;
 import com.lzy.okgo.model.Progress;
@@ -68,5 +69,11 @@ public class MyFragment extends BaseFragment {
                         return null;
                     }
                 });
+    }
+
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
+        ImmersionBar.with(this).statusBarColor(R.color.white).init();
     }
 }

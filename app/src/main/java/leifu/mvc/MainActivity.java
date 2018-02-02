@@ -1,8 +1,11 @@
 package leifu.mvc;
 
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -15,6 +18,8 @@ import leifu.mvc.base.BaseActivity;
 import leifu.mvc.ui.home.fragment.HomeFragment;
 import leifu.mvc.ui.my.fragment.MyFragment;
 import leifu.mvc.ui.near.fragment.NearFragment;
+import leifu.mvc.utils.Logger;
+import leifu.mvc.utils.SoundUtils;
 import leifu.mvc.view.NoScrollViewPager;
 import leifu.toastlibrary.CustomToast;
 
@@ -41,6 +46,14 @@ public class MainActivity extends BaseActivity {
         VpAdapter vpAdapter = new VpAdapter(getSupportFragmentManager());
         vp.setAdapter(vpAdapter);
         bnv.setupWithViewPager(vp, false);
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                SoundUtils.playSound(R.raw.didi);
+                Logger.e("aaa"+item.getTitle().toString());
+                return true;
+            }
+        });
     }
 
     class VpAdapter extends FragmentPagerAdapter {

@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 
 import com.classic.common.MultipleStatusView;
 import com.flyco.tablayout.SlidingTabLayout;
+import com.gyf.barlibrary.ImmersionBar;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,7 @@ public class NearFragment extends BaseFragment {
 
     @Override
     protected void initEventAndData() {
+
         mFragments.add(new NewsLatestFragment());
         mFragments.add(new NewsLatestFragment());
         mFragments.add(new NewsLatestFragment());
@@ -58,7 +60,7 @@ public class NearFragment extends BaseFragment {
 //            initEventAndData();
             Logger.e("onSupportVisible");
         }
-
+        ImmersionBar.with(this).statusBarColor(R.color.red2).init();
 
     }
 

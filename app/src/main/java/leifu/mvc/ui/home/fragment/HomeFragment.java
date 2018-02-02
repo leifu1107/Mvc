@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.gyf.barlibrary.ImmersionBar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,6 +81,7 @@ public class HomeFragment extends BaseFragment {
             tvVerticalscroll.startAutoScroll();
             Logger.e("已经isInited,主页可见");
         }
+        ImmersionBar.with(this).statusBarColor(R.color.white).init();
 
     }
 

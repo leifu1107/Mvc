@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.classic.common.MultipleStatusView;
 import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -46,7 +45,6 @@ public class NewsLatestFragment extends BaseFragment {
 
     @Override
     protected void initEventAndData() {
-        ImmersionBar.with(this).statusBarColor(R.color.red2).init();
         newsLatestAdapter = new NewsLatestAdapter(R.layout.item_newslatest, arrayList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(newsLatestAdapter);
