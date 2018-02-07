@@ -1,5 +1,6 @@
 package leifu.mvc.ui.near.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  * 描述:
  */
 
-public class NewsLatestBean {
+public class NewsLatestBean implements Serializable{
 
     /**
      * date : 20180202

@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.classic.common.MultipleStatusView;
-import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -19,6 +18,7 @@ import leifu.mvc.app.Constants;
 import leifu.mvc.base.BaseFragment;
 import leifu.mvc.ui.near.adapter.NewsLatestAdapter;
 import leifu.mvc.ui.near.bean.NewsLatestBean;
+import leifu.mvc.callback.Convert;
 import leifu.mvc.utils.Logger;
 import leifu.mvc.utils.SystemUtils;
 
@@ -59,7 +59,10 @@ public class NewsLatestFragment extends BaseFragment {
                     @Override
                     public void onSuccess(Response<String> response) {
                         Logger.e(response.body());
-                        NewsLatestBean newsLatestBean = new Gson().fromJson(response.body(), NewsLatestBean.class);
+                        NewsLatestBean newsLatestBean = Convert.fromJson(response.body(), NewsLatestBean.class);
+
+                        Logger.e("aaa-----formatJson"+Convert.formatJson(newsLatestBean));
+                        Logger.e("aaa-----toJson"+Convert.toJson(newsLatestBean));
                         arrayList.addAll(newsLatestBean.getStories());
                         newsLatestAdapter.notifyDataSetChanged();
                         msvStatusview.showContent();

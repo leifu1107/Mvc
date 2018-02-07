@@ -72,7 +72,7 @@ public abstract class BaseFragment extends SupportFragment {
 
     public void showLoading(MultipleStatusView msv_statusview) {
         if (loadingView==null) {
-            loadingView = LayoutInflater.from(mContext).inflate(R.layout.view_loading, null);
+            loadingView = LayoutInflater.from(mContext).inflate(R.layout.custom_loading_view, null);
         }
         msv_statusview.showLoading(loadingView,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
