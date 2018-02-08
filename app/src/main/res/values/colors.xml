@@ -17,4 +17,11 @@
     <color name="transparent50">#80000000</color>
     <color name="transparent20">#33000000</color>
     <color name="transparent10">#1A000000</color>
+
+
+    <color name="colorPrimary_night">#ff2e2e2e</color>
+    <color name="colorPrimaryDark_night">#aaaaaa</color>
+    <color name="colorAccent_night">#dfffffff</color>
+    <color name="white_night">#aaaaaa</color>
+    <color name="eee_night">#aaaaaa</color>
 </resources>

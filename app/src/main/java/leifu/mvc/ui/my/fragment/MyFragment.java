@@ -1,7 +1,9 @@
 package leifu.mvc.ui.my.fragment;
 
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 
+import com.allen.library.SuperTextView;
 import com.classic.common.MultipleStatusView;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
@@ -26,7 +28,9 @@ import leifu.toastlibrary.CustomToast;
 public class MyFragment extends BaseFragment {
     @BindView(R.id.msvStatusview)
     MultipleStatusView msvStatusview;
-
+    @BindView(R.id.stvLight)
+    SuperTextView stvLight;
+    boolean loadSkin = true;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_my;
@@ -43,6 +47,22 @@ public class MyFragment extends BaseFragment {
             }
         });
 
+        stvLight.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+            @Override
+            public void onClickListener(SuperTextView superTextView) {
+                CustomToast.success("点击");
+                if (loadSkin) {
+//                    SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);//后缀加载
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    loadSkin = false;
+                } else {
+//                    SkinCompatManager.getInstance().restoreDefaultTheme();
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    loadSkin = true;
+                }
+                mActivity.recreate();
+            }
+        });
     }
 
     @Override

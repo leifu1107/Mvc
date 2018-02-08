@@ -31,6 +31,12 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-night']
+        }
+    }
 }
 
 dependencies {
@@ -85,5 +91,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     //下拉刷新
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5-alpha-3'
+    //换肤
+    compile 'skin.support:skin-support:2.2.3'
 }
 

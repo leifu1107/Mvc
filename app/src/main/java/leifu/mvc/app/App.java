@@ -22,6 +22,7 @@ import javax.net.ssl.X509TrustManager;
 
 import leifu.toastlibrary.CustomToast;
 import okhttp3.OkHttpClient;
+import skin.support.SkinCompatManager;
 
 /**
  * 创建人: 雷富
@@ -40,6 +41,8 @@ public class App extends Application {
         CustomToast.init(this);
 
         initOkGo();
+        //换肤
+        SkinCompatManager.withoutActivity(this);
     }
 
     private void initOkGo() {
