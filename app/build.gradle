@@ -93,5 +93,7 @@ dependencies {
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5-alpha-3'
     //换肤
     compile 'skin.support:skin-support:2.2.3'
+    //PopupWindow
+    compile 'com.github.pinguo-zhouwei:CustomPopwindow:2.1.1'
 }
 

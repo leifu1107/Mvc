@@ -15,6 +15,8 @@ import leifu.mvc.app.Constants;
 import leifu.mvc.base.BaseFragment;
 import leifu.mvc.callback.Convert;
 import leifu.mvc.callback.JsonCallback;
+import leifu.mvc.ui.WebActivity;
+import leifu.mvc.ui.my.activity.SortActivity;
 import leifu.mvc.ui.near.bean.NewsLatestBean;
 import leifu.mvc.utils.Logger;
 import leifu.toastlibrary.CustomToast;
@@ -30,7 +32,13 @@ public class MyFragment extends BaseFragment {
     MultipleStatusView msvStatusview;
     @BindView(R.id.stvLight)
     SuperTextView stvLight;
+    @BindView(R.id.stvWeb)
+    SuperTextView stvWeb;
+    @BindView(R.id.stvSort)
+    SuperTextView stvSort;
+
     boolean loadSkin = true;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_my;
@@ -63,6 +71,19 @@ public class MyFragment extends BaseFragment {
                 mActivity.recreate();
             }
         });
+
+        stvWeb.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+            @Override
+            public void onClickListener(SuperTextView superTextView) {
+                mStartActivity(WebActivity.class);
+            }
+        });
+        stvSort.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+            @Override
+            public void onClickListener(SuperTextView superTextView) {
+                mStartActivity(SortActivity.class);
+            }
+        });
     }
 
     @Override
@@ -83,13 +104,13 @@ public class MyFragment extends BaseFragment {
                     @Override
                     public void onSuccess(Response<NewsLatestBean> response) {
                         NewsLatestBean body = response.body();
-                        Logger.e("onSuccess-----==="+Convert.toJson(body));
+                        Logger.e("onSuccess-----===" + Convert.toJson(body));
                     }
 
                     @Override
                     public void onError(Response<NewsLatestBean> response) {
                         super.onError(response);
-                        Logger.e("onError-----==="+Convert.toJson(response.body()));
+                        Logger.e("onError-----===" + Convert.toJson(response.body()));
                     }
                 });
     }

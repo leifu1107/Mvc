@@ -2,6 +2,7 @@ package leifu.mvc.base;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -75,5 +76,17 @@ public abstract class BaseFragment extends SupportFragment {
             loadingView = LayoutInflater.from(mContext).inflate(R.layout.custom_loading_view, null);
         }
         msv_statusview.showLoading(loadingView,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+    }
+
+
+    public void mStartActivity(Class<?> intentActivity, Bundle bundle) {
+        Intent intent = new Intent(mContext, intentActivity);
+        intent.putExtras(bundle);
+        super.startActivity(intent);
+    }
+
+    public void mStartActivity(Class<?> intentActivity) {
+        Intent intent = new Intent(mContext, intentActivity);
+        super.startActivity(intent);
     }
 }

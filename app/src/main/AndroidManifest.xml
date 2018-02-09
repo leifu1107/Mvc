@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".MainActivity"/>
         <activity android:name=".GuideActivty"/>
+        <activity android:name=".ui.WebActivity"/>
+        <activity android:name=".ui.my.activity.SortActivity"/>
     </application>
 
 </manifest>

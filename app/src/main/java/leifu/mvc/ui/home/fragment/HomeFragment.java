@@ -81,7 +81,7 @@ public class HomeFragment extends BaseFragment {
             tvVerticalscroll.startAutoScroll();
             Logger.e("已经isInited,主页可见");
         }
-        ImmersionBar.with(this).statusBarColor(R.color.white).init();
+        ImmersionBar.with(this).statusBarColor(R.color.white).statusBarDarkFont(true).init();
 
     }
 

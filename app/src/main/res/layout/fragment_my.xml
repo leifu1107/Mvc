@@ -24,28 +24,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingTop="20dp">
+                >
 
                 <com.allen.library.SuperTextView
-                    android:background="@color/white"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="80dp"
+                    android:background="@color/white"
                     app:sDividerLineType="both"
                     app:sLeftIconRes="@mipmap/head_default"
                     app:sLeftTextString="帐号管理"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
 
                 <com.allen.library.SuperTextView
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:background="@color/white"
                     app:sLeftTextString="通知设置"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
 
                 <com.allen.library.SuperTextView
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:background="@color/white"
                     app:sLeftTextString="账号与安全"
                     app:sRightIconRes="@mipmap/arrow_right_red"
                     app:sRightTextGravity="center"
@@ -53,15 +53,16 @@
                     app:sRightTvDrawableLeft="@mipmap/head_default"/>
 
                 <com.allen.library.SuperTextView
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:background="@color/white"
                     app:sDividerLineType="bottom"
                     app:sLeftTextString="设置中心"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
 
 
                 <com.allen.library.SuperTextView
+                    android:id="@+id/stvWeb"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="50dp"
@@ -69,13 +70,6 @@
                     app:sLeftTextString="意见反馈"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
 
-                <com.allen.library.SuperTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
-                    app:sDividerLineType="both"
-                    app:sLeftTextString="关于微博"
-                    app:sRightIconRes="@mipmap/arrow_right_red"/>
 
                 <com.allen.library.SuperTextView
                     android:id="@+id/stvLight"
@@ -84,6 +78,14 @@
                     android:layout_marginTop="20dp"
                     app:sDividerLineType="both"
                     app:sLeftTextString="夜间模式"
+                    app:sRightIconRes="@mipmap/arrow_right_red"/>
+                <com.allen.library.SuperTextView
+                    android:id="@+id/stvSort"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    app:sDividerLineType="both"
+                    app:sLeftTextString="分类"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
             </LinearLayout>
         </ScrollView>

@@ -31,11 +31,11 @@ import me.yokeyword.fragmentation.SupportActivity;
 public abstract class BaseActivity extends SupportActivity{
     protected Activity mContext;
     private Unbinder mUnbinder;
-    private TextView mCenterTitle;
-    private LinearLayout mTitleLayout;
-    private TextView mRightText;
-    private ImageView mBtnBack;
-    private ImmersionBar mImmersionBar;
+    public TextView mCenterTitle;
+    public LinearLayout mTitleLayout;
+    public TextView mRightText;
+    public ImageView mBtnBack;
+    public ImmersionBar mImmersionBar;
 
 
     @Override
