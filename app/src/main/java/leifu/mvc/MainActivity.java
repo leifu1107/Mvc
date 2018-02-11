@@ -15,6 +15,7 @@ import java.util.List;
 import butterknife.BindView;
 import leifu.mvc.app.App;
 import leifu.mvc.base.BaseActivity;
+import leifu.mvc.ui.classify.fragment.ClassifyFragment;
 import leifu.mvc.ui.home.fragment.HomeFragment;
 import leifu.mvc.ui.my.fragment.MyFragment;
 import leifu.mvc.ui.near.fragment.NearFragment;
@@ -39,7 +40,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initEventAndData() {
+        bnv.enableShiftingMode(false);
+        bnv.enableItemShiftingMode(false);
         fragmentList.add(new HomeFragment());
+        fragmentList.add(new ClassifyFragment());
         fragmentList.add(new NearFragment());
         fragmentList.add(new MyFragment());
         vp.setOffscreenPageLimit(3);

@@ -2,6 +2,7 @@
     <string name="app_name">Mvc框架</string>
 
     <string name="main_home">首页</string>
+    <string name="main_class">分类</string>
     <string name="main_near">附近</string>
     <string name="main_my">我的</string>
 

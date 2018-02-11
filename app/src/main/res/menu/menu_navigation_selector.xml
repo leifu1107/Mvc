@@ -5,7 +5,10 @@
         android:checked="true"
         android:icon="@drawable/selector_main_home_icon"
         android:title="@string/main_home"/>
-
+    <item
+        android:id="@+id/i_class"
+        android:icon="@drawable/selector_main_class_icon"
+        android:title="@string/main_class"/>
     <item
         android:id="@+id/i_weather"
         android:icon="@drawable/selector_main_near_icon"

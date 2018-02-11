@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m50"
+        android:layout_height="@dimen/m40"
         android:background="@color/white">
 
         <LinearLayout
@@ -70,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:drawableRight="@mipmap/arrowdown"
                 android:gravity="center"
-                android:text="品牌"/>
+                android:text="筛选"/>
         </LinearLayout>
     </LinearLayout>
 

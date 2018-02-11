@@ -58,7 +58,7 @@ public class SortActivity extends BaseActivity {
 
     @Override
     protected void initEventAndData() {
-        setTitleText("分类", "", R.color.white);
+        setTitleText("排序", "", R.color.white);
         newsLatestAdapter = new NewsLatestAdapter(R.layout.item_newslatest, arrayList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(newsLatestAdapter);
@@ -66,7 +66,7 @@ public class SortActivity extends BaseActivity {
         loadDatas();
     }
 
-    View view_menu1;
+    View view_menu1, view_menu2;
     CustomPopWindow popWindowMenu1;
 
     @OnClick({R.id.menu1, R.id.menu2, R.id.menu3})
@@ -76,7 +76,7 @@ public class SortActivity extends BaseActivity {
                 if (view_menu1 == null) {
                     view_menu1 = LayoutInflater.from(mContext).inflate(R.layout.view_menu1, null);
                     //处理popWindow 显示内容
-                    handleLogic(view_menu1);
+                    handleMenu1(view_menu1);
 
                     popWindowMenu1 = new CustomPopWindow.PopupWindowBuilder(this)
                             .setView(view_menu1)//显示的布局，还可以通过设置一个View
@@ -90,6 +90,9 @@ public class SortActivity extends BaseActivity {
                 }
                 break;
             case R.id.menu2:
+                view_menu2 = LayoutInflater.from(mContext).inflate(R.layout.view_menu2, null);
+                HoldMenu2 holdMenu2 = new HoldMenu2(view_menu2);
+
                 break;
             case R.id.menu3:
                 break;
@@ -98,17 +101,14 @@ public class SortActivity extends BaseActivity {
         }
     }
 
-    private void handleLogic(View view_menu1) {
+    private void handleMenu1(View view_menu1) {
         final HoldMenu1 holdMenu1 = new HoldMenu1(view_menu1);
-
-
         holdMenu1.ll_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 popWindowMenu1.dissmiss();
             }
         });
-
         for (int i = 0; i < holdMenu1.menu.getChildCount(); i++) {
             final TextView view = (TextView) holdMenu1.menu.getChildAt(i);
             view.setOnClickListener(new View.OnClickListener() {
@@ -151,5 +151,14 @@ public class SortActivity extends BaseActivity {
         }
     }
 
+    class HoldMenu2 {
+        @BindView(R.id.rv_left)
+        RecyclerView rv_left;
+        @BindView(R.id.rv_right)
+        RecyclerView rv_right;
 
+        public HoldMenu2(View view_menu1) {
+            ButterKnife.bind(this, view_menu2);
+        }
+    }
 }
