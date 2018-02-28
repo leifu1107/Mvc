@@ -1,7 +1,10 @@
 package leifu.mvc.ui.home.fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
@@ -13,6 +16,7 @@ import butterknife.BindView;
 import leifu.mvc.R;
 import leifu.mvc.base.BaseFragment;
 import leifu.mvc.utils.Logger;
+import leifu.mvc.utils.RegexUtils;
 import leifu.mvc.utils.TextVerticalScrollMoreUtils;
 import leifu.mvc.utils.TextVerticalScrollUtils;
 import leifu.toastlibrary.CustomToast;
@@ -28,6 +32,9 @@ public class HomeFragment extends BaseFragment {
     TextVerticalScrollUtils tvVerticalscroll;
     @BindView(R.id.tv_verticalscrollmore)
     TextVerticalScrollMoreUtils tv_verticalscrollmore;
+    @BindView(R.id.phone)
+    EditText phone;
+
     private ArrayList<String> titleList = new ArrayList<String>();
     List<View> views = new ArrayList<>();
 
@@ -55,6 +62,28 @@ public class HomeFragment extends BaseFragment {
         tvVerticalscroll.startAutoScroll();
 
         setUpMarqueeView();
+        phone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.toString().length() == 11) {
+                    if (RegexUtils.isMobileExact(phone.getText().toString())) {
+                        CustomToast.success("是手机号码");
+                    } else {
+                        CustomToast.error("非法号码");
+                    }
+                }
+            }
+        });
     }
 
     /**
