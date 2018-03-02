@@ -1,5 +1,7 @@
 package leifu.mvc.ui.my.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 
@@ -16,6 +18,7 @@ import leifu.mvc.base.BaseFragment;
 import leifu.mvc.callback.Convert;
 import leifu.mvc.callback.JsonCallback;
 import leifu.mvc.ui.WebActivity;
+import leifu.mvc.ui.my.activity.QrCodeActivity;
 import leifu.mvc.ui.my.activity.SortActivity;
 import leifu.mvc.ui.near.bean.NewsLatestBean;
 import leifu.mvc.utils.Logger;
@@ -36,6 +39,9 @@ public class MyFragment extends BaseFragment {
     SuperTextView stvWeb;
     @BindView(R.id.stvSort)
     SuperTextView stvSort;
+    @BindView(R.id.stvAccount)
+    SuperTextView stvAccount;
+
 
     boolean loadSkin = true;
 
@@ -82,6 +88,33 @@ public class MyFragment extends BaseFragment {
             @Override
             public void onClickListener(SuperTextView superTextView) {
                 mStartActivity(SortActivity.class);
+            }
+        });
+
+        stvAccount.setCenterTvClickListener(new SuperTextView.OnCenterTvClickListener() {
+            @Override
+            public void onClickListener() {
+                CustomToast.success("二维码");
+                new AlertDialog.Builder(mContext)
+                        .setCancelable(false)
+                        .setTitle("提示")
+                        .setMessage("同意以下权限")
+                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 如果用户继续：
+//                                executor.execute();
+                                mStartActivity(QrCodeActivity.class);
+                            }
+                        })
+                        .setNegativeButton("否", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 如果用户中断：
+//                                executor.cancel();
+                            }
+                        }).show();
+//                mStartActivity(QrCodeActivity.class);
             }
         });
     }

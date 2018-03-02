@@ -27,9 +27,11 @@
                 >
 
                 <com.allen.library.SuperTextView
+                    android:id="@+id/stvAccount"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/white"
+                    app:sCenterTvDrawableRight="@mipmap/ic_zxing"
                     app:sDividerLineType="both"
                     app:sLeftIconRes="@mipmap/head_default"
                     app:sLeftTextString="帐号管理"
@@ -79,13 +81,14 @@
                     app:sDividerLineType="both"
                     app:sLeftTextString="夜间模式"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
+
                 <com.allen.library.SuperTextView
                     android:id="@+id/stvSort"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     app:sDividerLineType="both"
-                    app:sLeftTextString="分类"
+                    app:sLeftTextString="筛选"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
             </LinearLayout>
         </ScrollView>

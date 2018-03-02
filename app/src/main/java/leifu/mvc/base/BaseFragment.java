@@ -3,6 +3,7 @@ package leifu.mvc.base;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -35,6 +36,7 @@ public abstract class BaseFragment extends SupportFragment {
     public void onAttach(Context context) {
         mActivity = (Activity) context;
         mContext = context;
+        mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onAttach(context);
     }
 
@@ -59,8 +61,6 @@ public abstract class BaseFragment extends SupportFragment {
     }
 
 
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -72,10 +72,10 @@ public abstract class BaseFragment extends SupportFragment {
     protected abstract void initEventAndData();
 
     public void showLoading(MultipleStatusView msv_statusview) {
-        if (loadingView==null) {
+        if (loadingView == null) {
             loadingView = LayoutInflater.from(mContext).inflate(R.layout.custom_loading_view, null);
         }
-        msv_statusview.showLoading(loadingView,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        msv_statusview.showLoading(loadingView, new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
 
 
