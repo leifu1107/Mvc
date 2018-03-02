@@ -111,8 +111,8 @@ public class QrCodeActivity extends BaseActivity implements QRCodeView.Delegate 
                     final SettingService settingService = AndPermission.permissionSetting(mContext);
                     new AlertDialog.Builder(mContext)
                             .setCancelable(false)
-                            .setTitle("2")
-                            .setMessage("权限2")
+                            .setTitle("注意")
+                            .setMessage("需要您打开相机权限才可进行以下操作")
                             .setPositiveButton("是", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
