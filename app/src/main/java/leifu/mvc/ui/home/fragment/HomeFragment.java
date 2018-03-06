@@ -1,20 +1,38 @@
 package leifu.mvc.ui.home.fragment;
 
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Response;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import leifu.mvc.R;
+import leifu.mvc.app.Constants;
 import leifu.mvc.base.BaseFragment;
+import leifu.mvc.bean.MessageEvent;
+import leifu.mvc.callback.Convert;
+import leifu.mvc.ui.classify.bean.MultipleItem;
+import leifu.mvc.ui.home.activity.EventBus1Activity;
+import leifu.mvc.ui.home.adapter.MultipleItemLayoutAdapter;
+import leifu.mvc.ui.near.adapter.NewsLatestAdapter;
+import leifu.mvc.ui.near.bean.NewsLatestBean;
 import leifu.mvc.utils.Logger;
 import leifu.mvc.utils.RegexUtils;
 import leifu.mvc.utils.TextVerticalScrollMoreUtils;
@@ -34,9 +52,17 @@ public class HomeFragment extends BaseFragment {
     TextVerticalScrollMoreUtils tv_verticalscrollmore;
     @BindView(R.id.phone)
     EditText phone;
+    @BindView(R.id.iv_layoutManager)
+    ImageView iv_layoutManager;
+    @BindView(R.id.mRecyclerView)
+    RecyclerView mRecyclerView;
+    List<NewsLatestBean.StoriesBean> arrayList = new ArrayList<>();
 
     private ArrayList<String> titleList = new ArrayList<String>();
     List<View> views = new ArrayList<>();
+    private NewsLatestAdapter newsLatestAdapter;
+    boolean isLinear = true;
+    private NewsLatestBean newsLatestBean;
 
     @Override
     protected int getLayoutId() {
@@ -84,6 +110,53 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
+        initRecycleView();
+    }
+
+    /**
+     * 切换布局
+     */
+    private void initRecycleView() {
+        final List<MultipleItem> multipleItemList = new ArrayList<>();
+
+        final MultipleItemLayoutAdapter layoutAdapter = new MultipleItemLayoutAdapter(mContext, multipleItemList);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        mRecyclerView.setAdapter(layoutAdapter);
+        OkGo.<String>get(Constants.HOST + "news/latest")
+                .tag(this)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        newsLatestBean = Convert.fromJson(response.body(), NewsLatestBean.class);
+                        for (int i = 0; i < newsLatestBean.getStories().size(); i++) {
+                            multipleItemList.add(new MultipleItem(MultipleItem.TEXT, 2, newsLatestBean.getStories().get(i)));
+                        }
+                        layoutAdapter.notifyDataSetChanged();
+                    }
+                });
+        //切换布局
+        iv_layoutManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                multipleItemList.clear();
+                if (isLinear) {
+                    mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
+                    isLinear = false;
+                    iv_layoutManager.setImageResource(R.mipmap.ic_switch1);
+                    for (int i = 0; i < newsLatestBean.getStories().size(); i++) {
+                        multipleItemList.add(new MultipleItem(MultipleItem.IMG, 2, newsLatestBean.getStories().get(i)));
+                    }
+                } else {
+                    mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+                    isLinear = true;
+                    iv_layoutManager.setImageResource(R.mipmap.ic_switch2);
+                    for (int i = 0; i < newsLatestBean.getStories().size(); i++) {
+                        multipleItemList.add(new MultipleItem(MultipleItem.TEXT, 2, newsLatestBean.getStories().get(i)));
+                    }
+                }
+                layoutAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     /**
@@ -119,5 +192,26 @@ public class HomeFragment extends BaseFragment {
         super.onSupportInvisible();
         tvVerticalscroll.stopAutoScroll();
         Logger.e("主页不可见");
+    }
+
+    @OnClick({R.id.tv_event})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_event:
+                EventBus.getDefault().postSticky(new MessageEvent(3, "这是HomeFragment传给1"));
+                mStartActivity(EventBus1Activity.class);
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onEvent(MessageEvent messageEvent) {
+        super.onEvent(messageEvent);
+        if (messageEvent.getFlag() == 4) {
+            Logger.e("444" + messageEvent.toString());
+        }
+
     }
 }

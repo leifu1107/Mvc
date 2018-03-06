@@ -38,4 +38,12 @@ public class MessageEvent {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public String toString() {
+        return "MessageEvent{" +
+                "flag=" + flag +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }

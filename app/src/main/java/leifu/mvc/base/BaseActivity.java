@@ -29,7 +29,7 @@ import me.yokeyword.fragmentation.SupportActivity;
  * 描述:
  */
 
-public abstract class BaseActivity extends SupportActivity{
+public abstract class BaseActivity extends SupportActivity {
     protected Activity mContext;
     private Unbinder mUnbinder;
     public TextView mCenterTitle;
@@ -44,7 +44,8 @@ public abstract class BaseActivity extends SupportActivity{
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(getLayout());
-        mImmersionBar = ImmersionBar.with(this).statusBarDarkFont(true);;
+        mImmersionBar = ImmersionBar.with(this).statusBarDarkFont(true);
+        ;
         mImmersionBar.init();   //所有子类都将继承这些相同的属性
         mUnbinder = ButterKnife.bind(this);
         EventBus.getDefault().register(this);

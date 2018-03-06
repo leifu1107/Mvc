@@ -58,9 +58,7 @@ public class NewsLatestFragment extends BaseFragment {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
-                        Logger.e(response.body());
                         NewsLatestBean newsLatestBean = Convert.fromJson(response.body(), NewsLatestBean.class);
-
                         Logger.e("aaa-----formatJson"+Convert.formatJson(newsLatestBean));
                         Logger.e("aaa-----toJson"+Convert.toJson(newsLatestBean));
                         arrayList.addAll(newsLatestBean.getStories());

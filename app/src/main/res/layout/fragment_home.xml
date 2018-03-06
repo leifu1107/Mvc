@@ -5,7 +5,6 @@
               android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_runtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -31,6 +30,23 @@
     <EditText
         android:id="@+id/phone"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m50"/>
+        android:layout_height="@dimen/m50"
+        android:hint="验证手机号码"/>
 
+    <TextView
+        android:id="@+id/tv_event"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m20"
+        android:text="EventBus传值测试"/>
+
+    <ImageView
+        android:id="@+id/iv_layoutManager"
+        android:layout_width="@dimen/m25"
+        android:layout_height="@dimen/m25"
+        android:src="@mipmap/ic_switch2"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 </LinearLayout>

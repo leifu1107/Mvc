@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/i_face"
         android:checked="true"
         android:icon="@drawable/selector_main_home_icon"
         android:title="@string/main_home"/>
     <item
-        android:id="@+id/i_class"
         android:icon="@drawable/selector_main_class_icon"
         android:title="@string/main_class"/>
     <item
-        android:id="@+id/i_weather"
         android:icon="@drawable/selector_main_near_icon"
         android:title="@string/main_near"/>
 
     <item
-        android:id="@+id/i_lamp"
         android:icon="@drawable/selector_main_my_icon"
         android:title="@string/main_my"/>
 

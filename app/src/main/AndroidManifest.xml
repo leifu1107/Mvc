@@ -33,7 +33,8 @@
         <activity android:name=".ui.WebActivity"/>
         <activity android:name=".ui.my.activity.SortActivity"/>
         <activity android:name=".ui.my.activity.QrCodeActivity"/>
-
+        <activity android:name=".ui.home.activity.EventBus1Activity"/>
+        <activity android:name=".ui.home.activity.EventBus2Activity"/>
     </application>
 
 </manifest>

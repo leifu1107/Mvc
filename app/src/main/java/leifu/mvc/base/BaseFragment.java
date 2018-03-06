@@ -13,9 +13,14 @@ import android.widget.RelativeLayout;
 
 import com.classic.common.MultipleStatusView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import leifu.mvc.R;
+import leifu.mvc.bean.MessageEvent;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -37,6 +42,7 @@ public abstract class BaseFragment extends SupportFragment {
         mActivity = (Activity) context;
         mContext = context;
         mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        EventBus.getDefault().register(this);
         super.onAttach(context);
     }
 
@@ -60,11 +66,15 @@ public abstract class BaseFragment extends SupportFragment {
         initEventAndData();
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageEvent messageEvent) {
+    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         mUnBinder.unbind();
+        EventBus.getDefault().unregister(this);
     }
 
     protected abstract int getLayoutId();
