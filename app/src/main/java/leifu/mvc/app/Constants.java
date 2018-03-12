@@ -20,7 +20,7 @@ public class Constants {
 
     //================= PREFERENCE ====================
     public static final String sp_guide_first = "sp_guide_first";
-
+    public static final String SP_ISNIGHT = "sp_isnight";
 
 
 

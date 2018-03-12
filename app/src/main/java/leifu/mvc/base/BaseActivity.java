@@ -45,7 +45,6 @@ public abstract class BaseActivity extends SupportActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(getLayout());
         mImmersionBar = ImmersionBar.with(this).statusBarDarkFont(true);
-        ;
         mImmersionBar.init();   //所有子类都将继承这些相同的属性
         mUnbinder = ButterKnife.bind(this);
         EventBus.getDefault().register(this);

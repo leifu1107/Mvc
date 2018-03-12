@@ -23,6 +23,7 @@ import leifu.mvc.ui.my.activity.SortActivity;
 import leifu.mvc.ui.my.activity.TestActivity;
 import leifu.mvc.ui.near.bean.NewsLatestBean;
 import leifu.mvc.utils.Logger;
+import leifu.mvc.utils.PreferencesUtils;
 import leifu.toastlibrary.CustomToast;
 
 /**
@@ -66,16 +67,16 @@ public class MyFragment extends BaseFragment {
         stvLight.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
             @Override
             public void onClickListener(SuperTextView superTextView) {
-                CustomToast.success("点击");
-                if (loadSkin) {
+                if (PreferencesUtils.getBoolean(Constants.SP_ISNIGHT, true)) {
 //                    SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);//后缀加载
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    loadSkin = false;
+                    PreferencesUtils.setBoolean(Constants.SP_ISNIGHT, false);
                 } else {
 //                    SkinCompatManager.getInstance().restoreDefaultTheme();
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    loadSkin = true;
+                    PreferencesUtils.setBoolean(Constants.SP_ISNIGHT, true);
                 }
+                CustomToast.success("点击" + PreferencesUtils.getBoolean(Constants.SP_ISNIGHT, true));
                 mActivity.recreate();
             }
         });
