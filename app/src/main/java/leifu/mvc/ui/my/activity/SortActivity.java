@@ -51,8 +51,10 @@ public class SortActivity extends BaseActivity {
     private NewsLatestAdapter newsLatestAdapter;
     List<NewsLatestBean.StoriesBean> arrayList = new ArrayList<>();
 
+
     @Override
     protected int getLayout() {
+
         return R.layout.activity_sort;
     }
 

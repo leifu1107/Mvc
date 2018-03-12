@@ -20,6 +20,7 @@ import leifu.mvc.callback.JsonCallback;
 import leifu.mvc.ui.WebActivity;
 import leifu.mvc.ui.my.activity.QrCodeActivity;
 import leifu.mvc.ui.my.activity.SortActivity;
+import leifu.mvc.ui.my.activity.TestActivity;
 import leifu.mvc.ui.near.bean.NewsLatestBean;
 import leifu.mvc.utils.Logger;
 import leifu.toastlibrary.CustomToast;
@@ -41,7 +42,8 @@ public class MyFragment extends BaseFragment {
     SuperTextView stvSort;
     @BindView(R.id.stvAccount)
     SuperTextView stvAccount;
-
+    @BindView(R.id.stvPublic)
+    SuperTextView stvPublic;
 
     boolean loadSkin = true;
 
@@ -91,6 +93,12 @@ public class MyFragment extends BaseFragment {
             }
         });
 
+        stvPublic.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+            @Override
+            public void onClickListener(SuperTextView superTextView) {
+                mStartActivity(TestActivity.class);
+            }
+        });
         stvAccount.setCenterTvClickListener(new SuperTextView.OnCenterTvClickListener() {
             @Override
             public void onClickListener() {
