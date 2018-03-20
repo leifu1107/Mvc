@@ -20,7 +20,6 @@ import leifu.mvc.ui.home.fragment.HomeFragment;
 import leifu.mvc.ui.my.fragment.MyFragment;
 import leifu.mvc.ui.near.fragment.NearFragment;
 import leifu.mvc.utils.Logger;
-import leifu.mvc.utils.SoundUtils;
 import leifu.mvc.view.NoScrollViewPager;
 import leifu.toastlibrary.CustomToast;
 
@@ -46,34 +45,40 @@ public class MainActivity extends BaseActivity {
         fragmentList.add(new ClassifyFragment());
         fragmentList.add(new NearFragment());
         fragmentList.add(new MyFragment());
-        vp.setOffscreenPageLimit(3);
-        VpAdapter vpAdapter = new VpAdapter(getSupportFragmentManager());
+        vp.setOffscreenPageLimit(4);
+        VpAdapter vpAdapter = new VpAdapter(getSupportFragmentManager(), fragmentList);
         vp.setAdapter(vpAdapter);
-        bnv.setupWithViewPager(vp, false);
+
+        Logger.e("aaa" + fragmentList.size());
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                SoundUtils.playSound(R.raw.didi);
-                Logger.e("aaa"+item.getTitle().toString());
+//                SoundUtils.playSound(R.raw.didi);
+                Logger.e("aaa" + item.getTitle().toString());
                 return true;
             }
         });
+        bnv.setupWithViewPager(vp, true);
     }
 
-    class VpAdapter extends FragmentPagerAdapter {
+    private class VpAdapter extends FragmentPagerAdapter {
 
-        public VpAdapter(FragmentManager fm) {
+        private List<Fragment> data;
+
+        public VpAdapter(FragmentManager fm, List<Fragment> data) {
             super(fm);
+            this.data = data;
         }
 
         @Override
         public Fragment getItem(int position) {
-            return fragmentList.get(position);
+            Logger.e("aaa----" + position);
+            return data.get(position);
         }
 
         @Override
         public int getCount() {
-            return fragmentList.size();
+            return data.size();
         }
     }
 

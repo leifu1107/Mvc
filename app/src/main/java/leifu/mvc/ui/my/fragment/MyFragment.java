@@ -15,7 +15,6 @@ import butterknife.BindView;
 import leifu.mvc.R;
 import leifu.mvc.app.Constants;
 import leifu.mvc.base.BaseFragment;
-import leifu.mvc.callback.Convert;
 import leifu.mvc.callback.JsonCallback;
 import leifu.mvc.ui.WebActivity;
 import leifu.mvc.ui.my.activity.QrCodeActivity;
@@ -46,7 +45,6 @@ public class MyFragment extends BaseFragment {
     @BindView(R.id.stvPublic)
     SuperTextView stvPublic;
 
-    boolean loadSkin = true;
 
     @Override
     protected int getLayoutId() {
@@ -146,13 +144,13 @@ public class MyFragment extends BaseFragment {
                     @Override
                     public void onSuccess(Response<NewsLatestBean> response) {
                         NewsLatestBean body = response.body();
-                        Logger.e("onSuccess-----===" + Convert.toJson(body));
+//                        Logger.e("onSuccess-----===" + Convert.toJson(body));
                     }
 
                     @Override
                     public void onError(Response<NewsLatestBean> response) {
                         super.onError(response);
-                        Logger.e("onError-----===" + Convert.toJson(response.body()));
+//                        Logger.e("onError-----===" + Convert.toJson(response.body()));
                     }
                 });
     }

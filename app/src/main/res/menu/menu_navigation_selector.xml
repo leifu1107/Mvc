@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--必须设置id,不设置id fragment显示有问题-->
     <item
+        android:id="@+id/i_home"
         android:checked="true"
         android:icon="@drawable/selector_main_home_icon"
         android:title="@string/main_home"/>
     <item
+        android:id="@+id/i_class"
         android:icon="@drawable/selector_main_class_icon"
         android:title="@string/main_class"/>
     <item
+        android:id="@+id/i_near"
         android:icon="@drawable/selector_main_near_icon"
         android:title="@string/main_near"/>
 
     <item
+        android:id="@+id/i_my"
         android:icon="@drawable/selector_main_my_icon"
         android:title="@string/main_my"/>
 

@@ -31,7 +31,6 @@ import leifu.mvc.callback.Convert;
 import leifu.mvc.ui.classify.bean.MultipleItem;
 import leifu.mvc.ui.home.activity.EventBus1Activity;
 import leifu.mvc.ui.home.adapter.MultipleItemLayoutAdapter;
-import leifu.mvc.ui.near.adapter.NewsLatestAdapter;
 import leifu.mvc.ui.near.bean.NewsLatestBean;
 import leifu.mvc.utils.Logger;
 import leifu.mvc.utils.RegexUtils;
@@ -56,11 +55,8 @@ public class HomeFragment extends BaseFragment {
     ImageView iv_layoutManager;
     @BindView(R.id.mRecyclerView)
     RecyclerView mRecyclerView;
-    List<NewsLatestBean.StoriesBean> arrayList = new ArrayList<>();
-
     private ArrayList<String> titleList = new ArrayList<String>();
     List<View> views = new ArrayList<>();
-    private NewsLatestAdapter newsLatestAdapter;
     boolean isLinear = true;
     private NewsLatestBean newsLatestBean;
 
@@ -110,7 +106,7 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
-        initRecycleView();
+       initRecycleView();
     }
 
     /**

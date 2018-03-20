@@ -12,7 +12,6 @@ import com.gyf.barlibrary.ImmersionBar;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 import leifu.mvc.R;
 import leifu.mvc.base.BaseFragment;
 import leifu.mvc.utils.Logger;
@@ -30,7 +29,6 @@ public class NearFragment extends BaseFragment {
     SlidingTabLayout stlNearTab;
     @BindView(R.id.vp)
     ViewPager vp;
-    Unbinder unbinder;
     private final String[] mTitles = {"最新日报", "往期日报", "主题日报"};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
 

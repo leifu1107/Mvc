@@ -20,7 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-
         app:itemIconTint="@color/selector_main_home_textcolor"
         app:itemTextColor="@color/selector_main_home_textcolor"
         app:menu="@menu/menu_navigation_selector"/>

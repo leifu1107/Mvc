@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 import leifu.mvc.R;
 import leifu.mvc.base.BaseFragment;
 import leifu.mvc.ui.classify.adapter.ClassifyLeftAdapter;
@@ -36,7 +35,6 @@ public class ClassifyFragment extends BaseFragment {
     RecyclerView rvLeft;
     @BindView(R.id.rv_right)
     RecyclerView rvRight;
-    Unbinder unbinder;
     String[] data = {"推荐", "男装", "女装", "数码", "推荐", "男装", "女装", "数码"};
 
     @Override
@@ -46,7 +44,6 @@ public class ClassifyFragment extends BaseFragment {
 
     @Override
     protected void initEventAndData() {
-
         ClassifyLeftAdapter adapter = new ClassifyLeftAdapter(R.layout.item_classify_left, Arrays.asList(data));
         rvLeft.setLayoutManager(new LinearLayoutManager(mContext));
         rvLeft.setAdapter(adapter);
