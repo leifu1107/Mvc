@@ -18,6 +18,10 @@ allprojects {
         jcenter()
         maven { url "https://jitpack.io" }
         mavenCentral()
+        maven {                                  // <-- Add thisappcompat-v7:27报错问题
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
 }
 

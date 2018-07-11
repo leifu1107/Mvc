@@ -18,6 +18,7 @@ import leifu.mvc.base.BaseFragment;
 import leifu.mvc.callback.JsonCallback;
 import leifu.mvc.ui.WebActivity;
 import leifu.mvc.ui.my.activity.QrCodeActivity;
+import leifu.mvc.ui.my.activity.RecyleNestActivity;
 import leifu.mvc.ui.my.activity.SortActivity;
 import leifu.mvc.ui.my.activity.TestActivity;
 import leifu.mvc.ui.near.bean.NewsLatestBean;
@@ -44,7 +45,8 @@ public class MyFragment extends BaseFragment {
     SuperTextView stvAccount;
     @BindView(R.id.stvPublic)
     SuperTextView stvPublic;
-
+    @BindView(R.id.mStvNest)
+    SuperTextView mStvNest;
 
     @Override
     protected int getLayoutId() {
@@ -122,6 +124,12 @@ public class MyFragment extends BaseFragment {
                             }
                         }).show();
 //                mStartActivity(QrCodeActivity.class);
+            }
+        });
+        mStvNest.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+            @Override
+            public void onClickListener(SuperTextView superTextView) {
+                mStartActivity(RecyleNestActivity.class);
             }
         });
     }

@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.VIBRATE" />
 
-
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -36,6 +35,7 @@
         <activity android:name=".ui.home.activity.EventBus1Activity"/>
         <activity android:name=".ui.home.activity.EventBus2Activity"/>
         <activity android:name=".ui.my.activity.TestActivity"/>
+        <activity android:name=".ui.my.activity.RecyleNestActivity"/>
     </application>
 
 </manifest>

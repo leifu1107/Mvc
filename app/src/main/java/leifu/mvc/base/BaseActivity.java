@@ -85,7 +85,9 @@ public abstract class BaseActivity extends SupportActivity {
 
     public void mStartActivity(Class<?> intentActivity) {
         Intent intent = new Intent(mContext, intentActivity);
-        super.startActivity(intent);
+        startActivity(intent);
+        overridePendingTransition(R.anim.activity_start_zoom_in, R.anim
+                .activity_start_zoom_out);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

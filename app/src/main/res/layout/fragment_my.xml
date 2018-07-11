@@ -55,11 +55,12 @@
                     app:sRightTvDrawableLeft="@mipmap/head_default"/>
 
                 <com.allen.library.SuperTextView
+                    android:id="@+id/mStvNest"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@color/white"
                     app:sDividerLineType="bottom"
-                    app:sLeftTextString="设置中心"
+                    app:sLeftTextString="RecyclerView嵌套"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
 
 
@@ -69,7 +70,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="50dp"
                     app:sDividerLineType="both"
-                    app:sLeftTextString="意见反馈"
+                    app:sLeftTextString="webview"
                     app:sRightIconRes="@mipmap/arrow_right_red"/>
 
 

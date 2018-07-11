@@ -97,6 +97,8 @@ public abstract class BaseFragment extends SupportFragment {
 
     public void mStartActivity(Class<?> intentActivity) {
         Intent intent = new Intent(mContext, intentActivity);
-        super.startActivity(intent);
+        startActivity(intent);
+        mActivity.overridePendingTransition(R.anim.activity_start_zoom_in, R.anim
+                .activity_start_zoom_out);
     }
 }

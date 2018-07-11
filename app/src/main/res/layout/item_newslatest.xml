@@ -2,19 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="@color/white"
-              android:padding="@dimen/m10"
               android:layout_marginBottom="@dimen/m1"
-              android:orientation="horizontal">
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:padding="@dimen/m10">
 
-    <ImageView
-        android:id="@+id/iv_news"
-        android:layout_width="@dimen/m80"
-        android:layout_height="@dimen/m80"/>
-
-    <TextView
-        android:padding="@dimen/m15"
-        android:id="@+id/tv_news"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_news"
+            android:layout_width="@dimen/m80"
+            android:layout_height="@dimen/m80"/>
+
+        <TextView
+            android:id="@+id/tv_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/m15"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
 </LinearLayout>
